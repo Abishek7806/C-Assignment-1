@@ -1,0 +1,79 @@
+using System;
+using System.Text.RegularExpressions;
+
+class Question3
+{
+    static void Main()
+    {
+        int pin = 1234;
+        bool access = false;
+
+        for (int tries = 1; tries <= 3; tries++)
+        {
+            Console.Write("Enter PIN: ");
+            int enteredPin = Convert.ToInt32(Console.ReadLine());
+            if (enteredPin == pin)
+            {
+                Console.WriteLine("Access Granted");
+                access = true;
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Wrong PIN. Try again.");
+            }
+        }
+        if (!access)
+            Console.WriteLine("Card Blocked");
+
+        char choice;
+        do
+        {
+            Console.Write("Enter a number for multiplication table: ");
+            int num = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i <= 10; i++)
+                Console.WriteLine($"{num} x {i} = {num * i}");
+
+            Console.Write("Try another number? (Y/N): ");
+            choice = Char.ToUpper(Console.ReadKey().KeyChar);
+            Console.WriteLine();
+        } while (choice == 'Y');
+
+        Console.Write("Enter units consumed: ");
+        int units = Convert.ToInt32(Console.ReadLine());
+        double bill = 0;
+
+        if (units <= 100)
+            bill = units * 2;
+        else if (units <= 200)
+            bill = (100 * 2) + ((units - 100) * 3);
+        else
+            bill = (100 * 2) + (100 * 3) + ((units - 200) * 5);
+
+        Console.WriteLine($"Total Electricity Bill: ₹{bill}");
+
+
+        int[] marks = new int[5];
+        int total = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write($"Enter mark for subject {i + 1}: ");
+            marks[i] = Convert.ToInt32(Console.ReadLine());
+            total += marks[i];
+        }
+        double avg = total / 5.0;
+        Console.WriteLine($"Average = {avg}");
+        if (avg >= 40)
+            Console.WriteLine("Result: Passed");
+        else
+            Console.WriteLine("Result: Failed");
+
+        Console.Write("Enter your name: ");
+        string name = Console.ReadLine();
+
+        if (Regex.IsMatch(name, @"^[A-Za-z\s]+$"))
+            Console.WriteLine("Valid Name");
+        else
+            Console.WriteLine("Invalid Name (contains digits/special chars)");
+    }
+}
