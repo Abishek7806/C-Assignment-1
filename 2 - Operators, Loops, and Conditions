@@ -1,0 +1,53 @@
+using System;
+
+class Question2
+{
+    static void Main()
+    {
+        int a = 10, b = 5;
+        Console.WriteLine($"Total apples: {a + b}");
+        Console.WriteLine($"Difference of pencils: {a - b}");
+        Console.WriteLine($"Total pages copied: {a * b}");
+        Console.WriteLine($"Each kid gets: {a / b} chocolates");
+        Console.WriteLine($"Leftover candies: {a % b}");
+
+        int playerA = 20, playerB = 15;
+        Console.WriteLine($"Player A > B: {playerA > playerB}");
+        Console.WriteLine($"Scores Equal: {playerA == playerB}");
+        Console.WriteLine($"Player A >= Player B: {playerA >= playerB}");
+
+        string username = "admin", password = "1234";
+        string inputUser = "admin", inputPass = "1234";
+
+        bool validUser = (inputUser == username);
+        bool validPass = (inputPass == password);
+
+        if (validUser && validPass)
+            Console.WriteLine("Access Granted");
+        else
+            Console.WriteLine("Access Denied");
+
+        Console.WriteLine($"At least one condition true: {validUser || validPass}");
+        Console.WriteLine($"Opposite of valid user: {!validUser}");
+
+        int score = 50;
+        score += 10; // Correct answer
+        Console.WriteLine($"After correct answer: {score}");
+        score -= 5;  // Wrong answer
+        Console.WriteLine($"After wrong answer: {score}");
+        score *= 2;  // Bonus round
+        Console.WriteLine($"After bonus round: {score}");
+        score /= 5;  // Penalty
+        Console.WriteLine($"After penalty: {score}");
+
+        for (int i = 1; i <= 5; i++)
+        {
+            Console.Write($"Enter age of person {i}: ");
+            int age = Convert.ToInt32(Console.ReadLine());
+            if (age >= 18)
+                Console.WriteLine("Eligible to Vote");
+            else
+                Console.WriteLine("Not Eligible");
+        }
+    }
+}
